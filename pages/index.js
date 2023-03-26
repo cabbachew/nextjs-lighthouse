@@ -3,7 +3,12 @@ import Head from 'next/head';
 import Image from 'next/image';
 
 import styles from '../styles/Home.module.css';
-import CodeSampleModal from '../components/CodeSampleModal';
+import dynamic from 'next/dynamic';
+// import CodeSampleModal from '../components/CodeSampleModal';
+
+const CodeSampleModal = dynamic(() => import('../components/CodeSampleModal'), {
+  ssr: false,
+});
 
 export default function Start({ countries }) {
   const [results, setResults] = useState(countries);
